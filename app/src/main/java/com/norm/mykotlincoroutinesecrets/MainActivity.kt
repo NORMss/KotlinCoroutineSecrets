@@ -34,6 +34,11 @@ class MainActivity : ComponentActivity() {
 
             MyKotlinCoroutineSecretsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    MyNavHost(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding),
+                    )
                 }
             }
         }

@@ -16,7 +16,7 @@ class PolingViewModel : ViewModel() {
         viewModelScope.launch {
             isPolling = true
             fetchNetwork(HttpClient())
-            isPolling
+            isPolling = false
         }
     }
 }
