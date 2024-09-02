@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -22,6 +23,8 @@ object SecondScreen
 
 @Composable
 fun MyNavHost(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+
     val navController = rememberNavController()
     NavHost(
         navController = navController,

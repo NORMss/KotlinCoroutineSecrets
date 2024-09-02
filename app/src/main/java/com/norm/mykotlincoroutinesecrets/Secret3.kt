@@ -2,24 +2,26 @@
 
 package com.norm.mykotlincoroutinesecrets
 
-import android.util.Log
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
+import io.ktor.client.request.parameter
 import io.ktor.util.InternalAPI
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.ensureActive
 import kotlin.coroutines.coroutineContext
 import kotlin.time.Duration.Companion.seconds
 
-suspend fun fetchNetwork(client: HttpClient) {
+suspend fun fetchNetwork(client: HttpClient): String {
+    val uncensored = ""
     while (true) {
         try {
             println("Poling network resource...")
 
             val posts = client.get(
                 urlString = "https://jsonplaceholder.typicode.com/posts"
-            )
+            ) {
+                parameter("text", uncensored)
+            }
             println("Received posts!")
 
             delay(30.seconds)
@@ -33,4 +35,5 @@ suspend fun fetchNetwork(client: HttpClient) {
 //            throw e
         }
     }
+    return uncensored
 }
